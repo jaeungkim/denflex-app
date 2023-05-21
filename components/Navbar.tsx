@@ -8,8 +8,9 @@ import { useTheme } from "next-themes";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Blog", href: "/blog", current: false },
-  { name: "Project", href: "/project", current: false },
+  { name: "About", href: "/about", current: false },
+  { name: "Products", href: "/products", current: false },
+  { name: "Events", href: "/events", current: false },
   { name: "Contact", href: "/contact", current: false },
 ];
 export default function Navbar() {
@@ -55,20 +56,20 @@ export default function Navbar() {
     <>
       <div className="w-full mx-auto max-w-7xl lg:px-8">
         <div className="relative px-4 sm:px-8 lg:px-12 flex gap-4">
-          <div className="flex flex-1">
-            <div className="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10">
+          <div className="flex flex-1 items-center">
+            <div className="p-0.5 backdrop-blur">
               <Link className="pointer-events-auto" href="/">
                 <Image
-                  className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-9 w-9"
-                  src="/images/ill_prof.jpeg"
-                  alt="profileLogo"
-                  width="36"
-                  height="36"
+                  className=""
+                  src="/images/logo.png"
+                  alt="denflexLogo"
+                  width="128"
+                  height="48"
                 />
               </Link>
             </div>
           </div>
-          <div className="flex flex-1 justify-end md:justify-center">
+          <div className="flex flex-2 justify-end md:justify-center">
             {/* Mobile Menu */}
             <div
               className="pointer-events-auto md:hidden"
@@ -86,7 +87,7 @@ export default function Navbar() {
             </div>
             {/* DESKTOP */}
             <nav className="pointer-events-auto hidden md:block">
-              <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+              <ul className="flex px-3 text-xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200 ">
                 {navigation.map((item) => (
                   <li
                     key={item.name}

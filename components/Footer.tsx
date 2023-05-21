@@ -3,9 +3,10 @@ import { useMemo } from "react";
 
 const menuItems = [
   { label: "Home", url: "/" },
-  // { label: "Blog", url: "/blog" },
-  // { label: "Project", url: "/project" },
-  // { label: "Contact", url: "/contact" },
+  { label: "About", url: "/about" },
+  { label: "Products", url: "/projects" },
+  { label: "Events", url: "/events" },
+  { label: "Contact", url: "/contact" },
 ];
 
 const Footer = () => {
