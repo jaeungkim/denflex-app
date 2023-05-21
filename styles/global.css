@@ -38,7 +38,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-cyan-700;
+  @apply bg-blue-700;
   -webkit-border-radius: 1ex;
 }
 

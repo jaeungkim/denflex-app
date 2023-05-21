@@ -19,10 +19,10 @@ export default function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
     const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
 
-    const buttonClassName = `group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 ${
+    const buttonClassName = `group px-3 py-2 transition ${
       isDarkTheme
         ? "text-yellow-300 hover:text-yellow-500"
-        : "text-cyan-500 hover:text-cyan-700"
+        : "text-blue-500 hover:text-blue-700"
     }`;
 
     const toggleTheme = () => {
@@ -59,17 +59,15 @@ export default function Navbar() {
           <div className="flex flex-1 items-center">
             <div className="p-0.5 backdrop-blur">
               <Link className="pointer-events-auto" href="/">
-                <Image
-                  className=""
+                <img
+                  className="h-auto"
                   src="/images/logo.png"
                   alt="denflexLogo"
-                  width="128"
-                  height="48"
                 />
               </Link>
             </div>
           </div>
-          <div className="flex flex-2 justify-end md:justify-center">
+          <div className="flex flex-2 justify-end md:justify-center items-center">
             {/* Mobile Menu */}
             <div
               className="pointer-events-auto md:hidden"
@@ -87,14 +85,14 @@ export default function Navbar() {
             </div>
             {/* DESKTOP */}
             <nav className="pointer-events-auto hidden md:block">
-              <ul className="flex px-3 text-xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200 ">
+              <ul className="flex px-3 text-2xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200 ">
                 {navigation.map((item) => (
                   <li
                     key={item.name}
                     aria-current={item.current ? "page" : undefined}
                   >
                     <Link
-                      className="relative block px-3 py-2 transition hover:text-cyan-500 dark:hover:text-cyan-400"
+                      className="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
                       href={item.href}
                     >
                       {item.name}
@@ -105,7 +103,7 @@ export default function Navbar() {
             </nav>
           </div>
 
-          <div className="flex justify-end md:flex-1">
+          <div className="flex justify-end md:flex-1 items-center">
             <div className="pointer-events-auto">{renderThemeChanger()}</div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Footer = () => {
         {menuItems.map((item) => (
           <Link
             key={item.url}
-            className="transition hover:text-cyan-500 dark:hover:text-cyan-400"
+            className="transition hover:text-blue-500 dark:hover:text-blue-400"
             href={item.url}
           >
             {item.label}
