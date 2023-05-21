@@ -60,14 +60,14 @@ export default function Navbar() {
             <div className="p-0.5 backdrop-blur">
               <Link className="pointer-events-auto" href="/">
                 <img
-                  className="h-auto"
+                  className="h-8 lg:h-auto"
                   src="/images/logo.png"
                   alt="denflexLogo"
                 />
               </Link>
             </div>
           </div>
-          <div className="flex flex-2 justify-end md:justify-center items-center">
+          <div className="flex justify-end flex-1 items-center">
             {/* Mobile Menu */}
             <div
               className="pointer-events-auto md:hidden"
@@ -85,14 +85,14 @@ export default function Navbar() {
             </div>
             {/* DESKTOP */}
             <nav className="pointer-events-auto hidden md:block">
-              <ul className="flex px-3 text-2xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200 ">
+              <ul className="flex px-3 text-lg lg:text-xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200">
                 {navigation.map((item) => (
                   <li
                     key={item.name}
                     aria-current={item.current ? "page" : undefined}
                   >
                     <Link
-                      className="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
+                      className="relative block px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
                       href={item.href}
                     >
                       {item.name}
@@ -101,11 +101,15 @@ export default function Navbar() {
                 ))}
               </ul>
             </nav>
-          </div>
-
-          <div className="flex justify-end md:flex-1 items-center">
+            <div className="pointer-events-auto font-medium text-lg lg:text-xl text-zinc-800 backdrop-blur dark:text-zinc-200">
+              <p className="px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400">KR</p>
+            </div>
             <div className="pointer-events-auto">{renderThemeChanger()}</div>
           </div>
+
+          {/* <div className="flex justify-end md:flex-1 items-center">
+           
+          </div> */}
         </div>
       </div>
 
