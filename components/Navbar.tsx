@@ -101,10 +101,10 @@ export default function Navbar() {
                 ))}
               </ul>
             </nav>
-            {/* <div className="pointer-events-auto font-medium text-lg lg:text-xl text-zinc-800 backdrop-blur dark:text-zinc-200">
-              <p className="px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400">KR</p>
-            </div> */}
-            <div className="pointer-events-auto ml-2 md:ml-0 rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">{renderThemeChanger()}</div>
+            <div className="pointer-events-auto ml-2 md:ml-0 font-medium text-sm rounded-full bg-white/90 text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+              <p className="px-3 py-2">KR</p>
+            </div>
+            <div className="pointer-events-auto ml-2 rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">{renderThemeChanger()}</div>
           </div>
 
           {/* <div className="flex justify-end md:flex-1 items-center">
