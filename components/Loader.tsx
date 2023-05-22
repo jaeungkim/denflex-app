@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function Loader() {
   const [dValue, setDValue] = useState(
-    "M2 2c49.7 2.6 125 3.1 400 7-46.5 3-600 20-200.2 15 45.2-1.5 90.6-1.8 135.8-.6"
+    "M2 2c49.7 2.6 125 3.1 220 7-26.5 3-250 20-200.2 15 45.2-1.5 90.6-1.8 135.8-.6"
   );
 
   useEffect(() => {
