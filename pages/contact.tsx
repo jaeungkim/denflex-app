@@ -2,7 +2,7 @@ import Layout from "@/components/shared/layout";
 
 export default function Contact() {
   return (
-    <Layout>
+    <Layout maxWidth={true}>
       <p>Contact</p>
     </Layout>
   );

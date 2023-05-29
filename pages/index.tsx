@@ -9,7 +9,7 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout maxWidth={false}>
       {" "}
       <section className="sandbox__carousel">
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />

@@ -33,20 +33,7 @@ export default function Loader() {
       className={`flex justify-center items-center h-screen w-screen absolute top-0 transition-opacity duration-1000 overflow-hidden`}
     >
       <div className="relative mb-48 sm:mb-0">
-        <p className="text-6xl sm:text-7xl">Denflex</p>
-        <svg
-          className="absolute w-full stroke-black dark:stroke-white"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <motion.path
-            d={dValue}
-            strokeWidth="3"
-            fill="transparent"
-            variants={pathVariants}
-            initial="hidden"
-            animate="visible"
-          />
-        </svg>
+        <p className="text-6xl sm:text-7xl gradient-loading">Denflex</p>
       </div>
     </motion.div>
   );

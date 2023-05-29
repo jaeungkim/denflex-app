@@ -54,8 +54,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full mx-auto max-w-7xl lg:px-8">
-        <div className="relative px-4 sm:px-8 lg:px-12 flex gap-4">
+      <div className="w-full mx-auto max-w-8xl">
+        <div className="relative px-4 sm:px-8 flex gap-4">
           <div className="flex flex-1 items-center">
             <div className="p-0.5 backdrop-blur">
               <Link className="pointer-events-auto" href="/">

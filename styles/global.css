@@ -49,7 +49,7 @@ body {
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-height: 30rem;
+  --slide-height: 40rem;
   /* padding: 1.6rem; */
 }
 
@@ -136,6 +136,7 @@ body {
   }
 }
 .sandbox__carousel {
+  overflow: visible;
   position: relative;
   background-color: var(--background-code);
 }
@@ -178,4 +179,25 @@ body {
   height: 2rem;
   margin-right: 1rem;
   fill: currentColor;
+}
+
+.gradient-loading {
+  background: linear-gradient(45deg, white, #6262ff);
+  background-size: 200% 200%;
+  animation: gradient-loading 3s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradient-loading {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

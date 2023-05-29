@@ -7,10 +7,12 @@ export const siteTitle = "DenFlex Website";
 
 export default function Layout({
   children,
+  maxWidth,
 }: {
   children: React.ReactNode;
   blog?: boolean;
   home?: boolean;
+  maxWidth?: boolean;
 }) {
   return (
     <Fragment>
@@ -23,8 +25,16 @@ export default function Layout({
       </Head>
       <Header />
       <div className="relative">
-        <main className="sm:px-8 mt-9 mx-auto max-w-7xl lg:px-8">
-          <div className="relative px-4 sm:px-8 lg:px-12 max-w-4xl lg:max-w-6xl mx-auto">
+        <main
+          className={`mx-auto ${
+            maxWidth ? "mt-9 sm:px-8 max-w-7xl lg:px-8" : ""
+          } `}
+        >
+          <div
+            className={`relative ${
+              maxWidth ? "px-4 sm:px-8 lg:px-12 max-w-4xl lg:max-w-6xl" : ""
+            } mx-auto`}
+          >
             {children}
           </div>
         </main>
