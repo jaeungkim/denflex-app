@@ -16,12 +16,6 @@ const navigation = [
 
 export default function Navbar() {
   let [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState<any>({
-    about: false,
-    products: false,
-    events: false,
-    contact: false,
-  });
   const { systemTheme, theme, setTheme } = useTheme();
   const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
 
@@ -44,13 +38,6 @@ export default function Navbar() {
   function openModal() {
     setIsOpen(true);
   }
-
-  const toggleDropdown = (item: any) => {
-    setIsDropdownOpen((prevState: any) => ({
-      ...prevState,
-      [item]: !prevState[item],
-    }));
-  };
 
   return (
     <>
@@ -90,8 +77,6 @@ export default function Navbar() {
                   <li
                     key={item.name}
                     aria-current={item.current ? "page" : undefined}
-                    onMouseEnter={() => toggleDropdown(item.name)}
-                    onMouseLeave={() => toggleDropdown(item.name)}
                   >
                     <Link
                       className="relative block px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
@@ -99,19 +84,6 @@ export default function Navbar() {
                     >
                       {item.name}
                     </Link>
-                    {isDropdownOpen[item.name] && (
-                      <div className="absolute top-full bg-white rounded-lg shadow-lg">
-                        {/* Dropdown content */}
-                        <ul className="py-2">
-                          {/* Replace with your dropdown items */}
-                          {[1, 2, 3].map((i) => (
-                            <li key={i} className="px-4 py-2">
-                              {item.name} {i}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
                   </li>
                 ))}
               </ul>
@@ -130,104 +102,67 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Modal Pop-up */}
-     {/* Mobile Menu Modal Pop-up */}
-     <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 overflow-y-auto"
+          className="relative z-[100] h-screen min-h-screen overflow-auto"
           onClose={closeModal}
         >
-          <div className="min-h-screen flex items-center justify-center px-4 py-6 text-center sm:block sm:p-0">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Dialog.Overlay className="fixed inset-0 bg-black opacity-50 dark:bg-white/10 dark:opacity-75" />
-            </Transition.Child>
+          <Transition.Child
+            key="hi"
+            as={Fragment}
+            enter="transition ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-            {/* Mobile Menu Content */}
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            >
-              <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:text-left">
-                    <Dialog.Title
-                      as="h3"
-                      className="text-lg leading-6 font-medium text-gray-900"
-                    >
-                      Menu
-                    </Dialog.Title>
-                    <div className="mt-2">
-                      <nav className="flex flex-col gap-2">
-                        {navigation.map((item: any) => (
-                          <div key={item.name}>
-                            {item.dropdown ? (
-                              <div>
-                                <button
-                                  className={`block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded-md ${
-                                    isDropdownOpen[item.name]
-                                      ? "bg-gray-100"
-                                      : ""
-                                  }`}
-                                  onClick={() => toggleDropdown(item.name)}
-                                >
-                                  {item.name}
-                                </button>
-                                <div
-                                  className={`${
-                                    isDropdownOpen[item.name]
-                                      ? "block"
-                                      : "hidden"
-                                  }`}
-                                >
-                                  {item.dropdown.map((subItem: any) => (
-                                    <Link
-                                      key={subItem.name}
-                                      href={subItem.href}
-                                    >
-                                      <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                        {subItem.name}
-                                      </a>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            ) : (
-                              <Link href={item.href}>
-                                <a className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded-md">
-                                  {item.name}
-                                </a>
-                              </Link>
-                            )}
-                          </div>
-                        ))}
-                      </nav>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                  <button
-                    type="button"
-                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={closeModal}
+          <div className="fixed top-0 inset-0 overflow-y-auto backdrop-blur bg-zinc-800/40 dark:bg-black/80 opacity-100">
+            <div className="flex items-center justify-center p-4 text-center">
+              <Transition.Child
+                key="hi"
+                as={Fragment}
+                enter="transition ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="transition ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="overflow-auto fixed inset-x-4 top-8 z-[100] origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800 opacity-100 scale-100">
+                  <Dialog.Title
+                    as="h2"
+                    className="flex flex-row w-full items-center justify-between text-sm font-medium text-zinc-600 dark:text-zinc-400"
                   >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </Transition.Child>
+                    Navigation
+                    <XMarkIcon
+                      className="w-5"
+                      onClick={() => setIsOpen(false)}
+                    />
+                  </Dialog.Title>
+                  <nav className="mt-6">
+                    <ul className="my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+                      {navigation.map((item) => (
+                        <li
+                          className="text-left"
+                          key={item.name}
+                          aria-current={item.current ? "page" : undefined}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <Link className="block py-2" href={item.href}>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
           </div>
         </Dialog>
       </Transition>
