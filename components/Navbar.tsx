@@ -13,35 +13,28 @@ const navigation = [
   { name: "Events", href: "/events", current: false },
   { name: "Contact", href: "/contact", current: false },
 ];
+
 export default function Navbar() {
   let [isOpen, setIsOpen] = useState(false);
-  const renderThemeChanger = () => {
-    const { systemTheme, theme, setTheme } = useTheme();
-    const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
+  const [isDropdownOpen, setIsDropdownOpen] = useState<any>({
+    about: false,
+    products: false,
+    events: false,
+    contact: false,
+  });
+  const { systemTheme, theme, setTheme } = useTheme();
+  const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
 
-    const buttonClassName = `group px-3 py-2 transition ${
-      isDarkTheme
-        ? "text-yellow-300 hover:text-yellow-500"
-        : "text-blue-500 hover:text-blue-700"
-    }`;
+  const buttonClassName = `group px-3 py-2 transition ${
+    isDarkTheme
+      ? "text-yellow-300 hover:text-yellow-500"
+      : "text-blue-500 hover:text-blue-700"
+  }`;
 
-    const toggleTheme = () => {
-      const newTheme = isDarkTheme ? "light" : "dark";
-      setIsDarkTheme(!isDarkTheme);
-      setTheme(newTheme);
-    };
-
-    const icon = isDarkTheme ? (
-      <SunIcon className="w-5 h-5 text-yellow-400" />
-    ) : (
-      <MoonIcon className="w-5 h-5 text-blue-500" />
-    );
-
-    return (
-      <button onClick={toggleTheme} className={buttonClassName}>
-        {icon}
-      </button>
-    );
+  const toggleTheme = () => {
+    const newTheme = isDarkTheme ? "light" : "dark";
+    setIsDarkTheme(!isDarkTheme);
+    setTheme(newTheme);
   };
 
   function closeModal() {
@@ -51,6 +44,13 @@ export default function Navbar() {
   function openModal() {
     setIsOpen(true);
   }
+
+  const toggleDropdown = (item: any) => {
+    setIsDropdownOpen((prevState: any) => ({
+      ...prevState,
+      [item]: !prevState[item],
+    }));
+  };
 
   return (
     <>
@@ -86,10 +86,12 @@ export default function Navbar() {
             {/* DESKTOP */}
             <nav className="pointer-events-auto hidden md:block">
               <ul className="flex px-3 text-lg lg:text-xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200">
-                {navigation.map((item) => (
+                {navigation.map((item: any) => (
                   <li
                     key={item.name}
                     aria-current={item.current ? "page" : undefined}
+                    onMouseEnter={() => toggleDropdown(item.name)}
+                    onMouseLeave={() => toggleDropdown(item.name)}
                   >
                     <Link
                       className="relative block px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
@@ -97,19 +99,33 @@ export default function Navbar() {
                     >
                       {item.name}
                     </Link>
+                    {isDropdownOpen[item.name] && (
+                      <div className="absolute top-full bg-white rounded-lg shadow-lg">
+                        {/* Dropdown content */}
+                        <ul className="py-2">
+                          {/* Replace with your dropdown items */}
+                          {[1, 2, 3].map((i) => (
+                            <li key={i} className="px-4 py-2">
+                              {item.name} {i}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
             </nav>
-            <div className="pointer-events-auto ml-2 md:ml-0 font-medium text-sm rounded-full bg-white/90 text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-              <p className="px-3 py-2">KR</p>
+            <div className="pointer-events-auto ml-2 rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+              <button onClick={toggleTheme} className={buttonClassName}>
+                {isDarkTheme ? (
+                  <SunIcon className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <MoonIcon className="w-5 h-5 text-blue-500" />
+                )}
+              </button>
             </div>
-            <div className="pointer-events-auto ml-2 rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">{renderThemeChanger()}</div>
           </div>
-
-          {/* <div className="flex justify-end md:flex-1 items-center">
-           
-          </div> */}
         </div>
       </div>
 
