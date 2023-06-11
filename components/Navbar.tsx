@@ -94,6 +94,7 @@ export default function Navbar() {
   const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [expandedNavItem, setExpandedNavItem] = useState(null);
 
   const handleMouseEnter = (name: any) => {
     setActiveSubmenu(name);
@@ -103,6 +104,10 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     setActiveSubmenu(null);
     setIsSubmenuOpen(false);
+  };
+
+  const handleNavigationClick = (item: any) => {
+    setExpandedNavItem((prevItem) => (prevItem === item ? null : item));
   };
 
   const toggleTheme = () => {
@@ -192,7 +197,6 @@ export default function Navbar() {
           as="div"
           className="relative z-[100] h-screen min-h-screen overflow-auto"
           onClose={() => setIsOpen(false)}
-          // onClick={() => setIsOpen(false)}
         >
           <Transition.Child
             key="hi"
@@ -232,16 +236,28 @@ export default function Navbar() {
                   </Dialog.Title>
                   <nav className="mt-6">
                     <ul className="my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                      {navigation.map((item) => (
+                      {navigation.map((item: any) => (
                         <li
-                          className="text-left"
+                          className={`text-left ${
+                            expandedNavItem === item ? "open" : ""
+                          }`}
                           key={item.name}
                           aria-current={item.current ? "page" : undefined}
-                          onClick={() => setIsOpen(false)}
+                          onClick={() => handleNavigationClick(item)}
                         >
-                          <Link className="block py-2" href={item.href}>
-                            {item.name}
-                          </Link>
+                          <p className="block py-2">{item.name}</p>
+                          {expandedNavItem === item && (
+                            <ul className="submenu">
+                              {/* Render submenu items here */}
+                              {item.submenu.map((submenuItem: any) => (
+                                <li key={submenuItem.label}>
+                                  <Link href={submenuItem.href}>
+                                    {submenuItem.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>
