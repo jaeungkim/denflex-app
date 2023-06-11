@@ -1,12 +1,11 @@
 "use client";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
 import { Transition, Dialog } from "@headlessui/react";
 import { XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
   {
     name: "About",
     href: "/about/denflex",
@@ -94,13 +93,16 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
   const handleMouseEnter = (name: any) => {
     setActiveSubmenu(name);
+    setIsSubmenuOpen(true);
   };
 
   const handleMouseLeave = () => {
     setActiveSubmenu(null);
+    setIsSubmenuOpen(false);
   };
 
   const toggleTheme = () => {
@@ -109,8 +111,17 @@ export default function Navbar() {
     setTheme(newTheme);
   };
 
+  useEffect(() => {
+    const appContent: any = document.querySelector("#app-content");
+    if (isSubmenuOpen) {
+      appContent.style.filter = "brightness(70%)";
+    } else {
+      appContent.style.filter = "none";
+    }
+  }, [isSubmenuOpen]);
+
   return (
-    <header className="py-6 md:py-0 sticky top-0 bg-opacity-70 backdrop-blur pointer-events-none flex flex-col h-full z-40 border-b border-gray-200">
+    <header className="py-6 md:py-0 sticky top-0 bg-opacity-70 backdrop-blur pointer-events-none flex flex-col h-full z-40">
       <div className="w-full mx-auto max-w-8xl">
         <div className="relative px-4 sm:px-8 flex gap-4">
           <div className="flex flex-1 items-center">

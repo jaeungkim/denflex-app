@@ -189,7 +189,9 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.body-backdrop {
+  filter: blur(5px) !important;
+}
 @keyframes gradient-loading {
   0% {
     background-position: 0% 50%;

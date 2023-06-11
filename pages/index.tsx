@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Layout from "@/components/shared/layout";
 import EmblaCarousel from "@/components/shared/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel-react";

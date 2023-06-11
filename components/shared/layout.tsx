@@ -24,7 +24,7 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Navbar />
-      <div className="relative">
+      <div className="relative" id="app-content">
         <main
           className={`mx-auto ${
             maxWidth ? "mt-9 sm:px-8 max-w-7xl lg:px-8" : ""
