@@ -3,27 +3,105 @@ import { Fragment, useState } from "react";
 import Link from "next/link";
 import { Transition, Dialog } from "@headlessui/react";
 import { XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "About", href: "/about", current: false },
-  { name: "Products", href: "/products", current: false },
-  { name: "Events", href: "/events", current: false },
-  { name: "Contact", href: "/contact", current: false },
+  {
+    name: "About",
+    href: "/about/denflex",
+    current: false,
+    submenu: [
+      { label: "About Denflex", href: "/about/denflex" },
+      { label: "R & D", href: "/about/rd" },
+      { label: "Notice", href: "/about/notice" },
+      { label: "Location", href: "/about/location" },
+    ],
+  },
+  {
+    name: "Products",
+    href: "/product/spring-endo-file",
+    current: false,
+    submenu: [
+      { label: "Spring Endo File", href: "/product/spring-endo-file" },
+      {
+        label: "Combined Torque Wrench",
+        href: "/product/combined-torque-wrench",
+      },
+      { label: "One Touch Implant", href: "/product/one-touch-implant" },
+      { label: "Helical Attachment", href: "/product/helical-attachment" },
+      { label: "Smart Abutment", href: "/product/smart-abutment" },
+      { label: "NG Handpiece", href: "/product/ng-handpiece" },
+      { label: "Advanced Fixture", href: "/product/advanced-fixture" },
+    ],
+  },
+  {
+    name: "Events",
+    href: "/events",
+    current: false,
+    submenu: [
+      { label: "events", href: "/events" },
+      { label: "seminar", href: "/seminar" },
+    ],
+  },
+  {
+    name: "Support",
+    href: "/pr-center",
+    current: false,
+    submenu: [
+      { label: "PR Center", href: "/pr-center" },
+      { label: "Manuals", href: "/manuals" },
+      { label: "Catalogs", href: "/catalogs" },
+      { label: "Inquires", href: "/inquires" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
 ];
 
-export default function Navbar() {
-  let [isOpen, setIsOpen] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
-  const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
+const Submenu = ({ items }: any) => (
+  <div className="absolute left-0 right-0 bg-white border-b py-24 border-gray-200 shadow-xl dark:bg-gray-800 flex justify-around">
+    {items.map((item: any, index: any) => (
+      <Link
+        key={index}
+        href={item.href}
+        className="px-4 py-2 text-sm text-gray-700 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+      >
+        {item.label}
+      </Link>
+    ))}
+  </div>
+);
 
-  const buttonClassName = `group px-3 py-2 transition ${
-    isDarkTheme
-      ? "text-yellow-300 hover:text-yellow-500"
-      : "text-blue-500 hover:text-blue-700"
-  }`;
+const ThemeButton = ({ isDarkTheme, toggleTheme }: any) => (
+  <button
+    onClick={toggleTheme}
+    className={`rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 group px-3 py-2 transition ${
+      isDarkTheme
+        ? "text-yellow-300 hover:text-yellow-500"
+        : "text-blue-500 hover:text-blue-700"
+    }`}
+  >
+    {isDarkTheme ? (
+      <SunIcon className="w-5 h-5 text-yellow-400" />
+    ) : (
+      <MoonIcon className="w-5 h-5 text-blue-500" />
+    )}
+  </button>
+);
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
+  const handleMouseEnter = (name: any) => {
+    setActiveSubmenu(name);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveSubmenu(null);
+  };
 
   const toggleTheme = () => {
     const newTheme = isDarkTheme ? "light" : "dark";
@@ -31,16 +109,8 @@ export default function Navbar() {
     setTheme(newTheme);
   };
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
-    <>
+    <header className="py-6 md:py-0 sticky top-0 bg-opacity-70 backdrop-blur pointer-events-none flex flex-col h-full z-40 border-b border-gray-200">
       <div className="w-full mx-auto max-w-8xl">
         <div className="relative px-4 sm:px-8 flex gap-4">
           <div className="flex flex-1 items-center">
@@ -54,11 +124,11 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-          <div className="flex justify-end flex-1 items-center">
+          <div className="flex items-center justify-center md:flex-1">
             {/* Mobile Menu */}
             <div
               className="pointer-events-auto md:hidden"
-              onClick={() => openModal()}
+              onClick={() => setIsOpen(true)}
             >
               <button
                 className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
@@ -71,15 +141,19 @@ export default function Navbar() {
               </button>
             </div>
             {/* DESKTOP */}
-            <nav className="pointer-events-auto hidden md:block">
+            <nav
+              className="pointer-events-auto hidden md:block"
+              onMouseLeave={handleMouseLeave}
+            >
               <ul className="flex px-3 text-lg lg:text-xl font-medium text-zinc-800 backdrop-blur dark:text-zinc-200">
-                {navigation.map((item: any) => (
+                {navigation.map((item) => (
                   <li
                     key={item.name}
                     aria-current={item.current ? "page" : undefined}
+                    onMouseEnter={() => handleMouseEnter(item.submenu)}
                   >
                     <Link
-                      className="relative block px-3 lg:px-6 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
+                      className="block px-3 lg:px-6  py-6 transition hover:text-blue-500 dark:hover:text-blue-400"
                       href={item.href}
                     >
                       {item.name}
@@ -87,15 +161,15 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
+              {activeSubmenu && <Submenu items={activeSubmenu} />}
             </nav>
-            <div className="pointer-events-auto ml-2 rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-              <button onClick={toggleTheme} className={buttonClassName}>
-                {isDarkTheme ? (
-                  <SunIcon className="w-5 h-5 text-yellow-400" />
-                ) : (
-                  <MoonIcon className="w-5 h-5 text-blue-500" />
-                )}
-              </button>
+          </div>
+          <div className="flex justify-end md:flex-1">
+            <div className="flex items-center pointer-events-auto">
+              <ThemeButton
+                isDarkTheme={isDarkTheme}
+                toggleTheme={toggleTheme}
+              />
             </div>
           </div>
         </div>
@@ -106,7 +180,8 @@ export default function Navbar() {
         <Dialog
           as="div"
           className="relative z-[100] h-screen min-h-screen overflow-auto"
-          onClose={closeModal}
+          onClose={() => setIsOpen(false)}
+          // onClick={() => setIsOpen(false)}
         >
           <Transition.Child
             key="hi"
@@ -166,6 +241,6 @@ export default function Navbar() {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </header>
   );
 }

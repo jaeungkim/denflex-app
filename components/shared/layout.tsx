@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Fragment } from "react";
 
@@ -23,7 +23,7 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header />
+      <Navbar />
       <div className="relative">
         <main
           className={`mx-auto ${
