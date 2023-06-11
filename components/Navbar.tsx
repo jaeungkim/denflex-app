@@ -168,12 +168,9 @@ export default function Navbar() {
                     aria-current={item.current ? "page" : undefined}
                     onMouseEnter={() => handleMouseEnter(item.submenu)}
                   >
-                    <Link
-                      className="block px-3 lg:px-6  py-6 transition hover:text-blue-500 dark:hover:text-blue-400"
-                      href={item.href}
-                    >
+                    <p className="block px-3 lg:px-6  py-6 transition hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer">
                       {item.name}
-                    </Link>
+                    </p>
                   </li>
                 ))}
               </ul>
