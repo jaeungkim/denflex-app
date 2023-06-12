@@ -83,7 +83,7 @@ const menuData: Menu[] = [
   },
   {
     id: 3,
-    title: "Events&Seminar",
+    title: "Events",
     newTab: false,
     submenu: [
       {
