@@ -14,9 +14,9 @@ import "swiper/css/pagination";
 const sliders = [
   {
     id: 2,
-    image: "/bg-img/denflex_img1.jpg",
-    imageTablet: "/bg-img/denflex_img1.jpg",
-    imageMobile: "/bg-img/denflex_img1.jpg",
+    image: "/bg-img/curly_hair_girl-1.jpg",
+    imageTablet: "/bg-img/curly_hair_girl-1-tablet.png",
+    imageMobile: "/bg-img/curly_hair_girl-1_mobile.jpg",
     subtitle: "Denflex",
     titleUp: "Denflex",
     titleDown: "Denflex",
