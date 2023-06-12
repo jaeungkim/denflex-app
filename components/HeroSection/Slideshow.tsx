@@ -1,32 +1,22 @@
 "use client";
 
-// import { useTranslations } from "next-intl";
 import Image from "next/image";
 import TextButton from "../Buttons/TextButton";
 import styles from "./Hero.module.css";
 
-// swiperjs
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import 'swiper/css/scrollbar';
-// import Swiper core and required modules
-// import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper/core";
-
-// install Swiper modules
-// SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 const sliders = [
   {
     id: 2,
-    image: "/bg-img/curly_hair_girl-1.jpg",
-    imageTablet: "/bg-img/curly_hair_girl-1-tablet.png",
-    imageMobile: "/bg-img/curly_hair_girl-1_mobile.jpg",
-    // image: "/bg-img/denflex_img1.jpg",
-    // imageTablet: "/bg-img/denflex_img1.jpg",
-    // imageMobile: "/bg-img/denflex_img1.jpg",
+    image: "/bg-img/denflex_img1.jpg",
+    imageTablet: "/bg-img/denflex_img1.jpg",
+    imageMobile: "/bg-img/denflex_img1.jpg",
     subtitle: "Denflex",
     titleUp: "Denflex",
     titleDown: "Denflex",
@@ -34,9 +24,9 @@ const sliders = [
   },
   {
     id: 1,
-    image: "/bg-img/curly_hair_white-1.jpg",
-    imageTablet: "/bg-img/curly_hair_white-1-tablet.png",
-    imageMobile: "/bg-img/curly_hair_white-1_mobile.jpg",
+    image: "/bg-img/denflex_img2.jpg",
+    imageTablet: "/bg-img/denflex_img2.jpg",
+    imageMobile: "/bg-img/denflex_img2.jpg",
     subtitle: "Denflex",
     titleUp: "Denflex",
     titleDown: "Denflex",
@@ -44,9 +34,29 @@ const sliders = [
   },
   {
     id: 3,
-    image: "/bg-img/monigote.jpg",
-    imageTablet: "/bg-img/monigote-tablet.png",
-    imageMobile: "/bg-img/monigote_mobile.jpg",
+    image: "/bg-img/denflex_img3.png",
+    imageTablet: "/bg-img/denflex_img3.png",
+    imageMobile: "/bg-img/denflex_img3.png",
+    subtitle: "Denflex",
+    titleUp: "Denflex",
+    titleDown: "Denflex",
+    rightText: false,
+  },
+  {
+    id: 4,
+    image: "/bg-img/denflex_img4.png",
+    imageTablet: "/bg-img/denflex_img4.png",
+    imageMobile: "/bg-img/denflex_img4.png",
+    subtitle: "Denflex",
+    titleUp: "Denflex",
+    titleDown: "Denflex",
+    rightText: false,
+  },
+  {
+    id: 5,
+    image: "/bg-img/denflex_img5.png",
+    imageTablet: "/bg-img/denflex_img5.png",
+    imageMobile: "/bg-img/denflex_img5.png",
     subtitle: "Denflex",
     titleUp: "Denflex",
     titleDown: "Denflex",
@@ -55,11 +65,22 @@ const sliders = [
 ];
 
 const Slideshow = () => {
-  //   const t = useTranslations("Index");
+  const ImageComponent = (hideOn, imageUrl) => {
+    return (
+      <div className={`${hideOn} relative`} style={{ height: "85vh" }}>
+        <Image
+          src={imageUrl}
+          layout="fill"
+          objectFit="cover"
+          alt={"some name"}
+        />
+      </div>
+    );
+  };
 
   return (
     <>
-      <div className="slide-container relative z-20 w-full">
+      <div className="slide-container relative z-20 w-full pt-24">
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
@@ -79,33 +100,10 @@ const Slideshow = () => {
         >
           {sliders.map((slider) => (
             <SwiperSlide key={slider.id}>
-              <div className="hidden lg:block">
-                <Image
-                  layout="responsive"
-                  src={slider.image}
-                  width={1144}
-                  height={572}
-                  alt={"some name"}
-                />
-              </div>
-              <div className="hidden sm:block lg:hidden">
-                <Image
-                  layout="responsive"
-                  src={slider.imageTablet}
-                  width={820}
-                  height={720}
-                  alt={"some name"}
-                />
-              </div>
-              <div className="sm:hidden">
-                <Image
-                  layout="responsive"
-                  src={slider.imageMobile}
-                  width={428}
-                  height={800}
-                  alt={"some name"}
-                />
-              </div>
+              {ImageComponent("hidden lg:block", slider.image)}
+              {ImageComponent("hidden sm:block lg:hidden", slider.imageTablet)}
+              {ImageComponent("sm:hidden", slider.imageMobile)}
+
               <div
                 className={
                   slider.rightText
@@ -122,7 +120,6 @@ const Slideshow = () => {
                   {slider.titleUp} <br />
                   {slider.titleDown}
                 </span>
-                {/* <TextButton value={t("shop_now")} /> */}
               </div>
             </SwiperSlide>
           ))}
