@@ -5,6 +5,11 @@ import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+// Import Swiper styles
+// import "swiper/swiper.min.css";
+// import "swiper/components/navigation/navigation.min.css";
+// import "swiper/components/pagination/pagination.min.css";
+// import "swiper/components/scrollbar/scrollbar.min.css";
 
 export default function RootLayout({
   children,
