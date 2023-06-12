@@ -67,7 +67,7 @@ const sliders = [
 const Slideshow = () => {
   const ImageComponent = (hideOn, imageUrl) => {
     return (
-      <div className={`${hideOn} relative`} style={{ height: "85vh" }}>
+      <div className={`${hideOn} relative`} style={{ height: "100vh" }}>
         <Image
           src={imageUrl}
           layout="fill"
@@ -80,7 +80,7 @@ const Slideshow = () => {
 
   return (
     <>
-      <div className="slide-container relative z-20 w-full pt-24">
+      <div className="slide-container relative z-20 w-full">
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
