@@ -39,7 +39,7 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 21,
-        title: "Sprint Endo File",
+        title: "Spring Endo File",
         path: "/product/spring-endo-file",
         newTab: false,
       },
