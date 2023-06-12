@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 // import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -24,9 +24,12 @@ const sliders = [
     image: "/bg-img/curly_hair_girl-1.jpg",
     imageTablet: "/bg-img/curly_hair_girl-1-tablet.png",
     imageMobile: "/bg-img/curly_hair_girl-1_mobile.jpg",
-    subtitle: "50% off",
-    titleUp: "New Cocktail",
-    titleDown: "Dresses",
+    // image: "/bg-img/denflex_img1.jpg",
+    // imageTablet: "/bg-img/denflex_img1.jpg",
+    // imageMobile: "/bg-img/denflex_img1.jpg",
+    subtitle: "Denflex",
+    titleUp: "Denflex",
+    titleDown: "Denflex",
     rightText: false,
   },
   {
@@ -34,9 +37,9 @@ const sliders = [
     image: "/bg-img/curly_hair_white-1.jpg",
     imageTablet: "/bg-img/curly_hair_white-1-tablet.png",
     imageMobile: "/bg-img/curly_hair_white-1_mobile.jpg",
-    subtitle: "Spring Revolution",
-    titleUp: "Night Summer",
-    titleDown: "Dresses",
+    subtitle: "Denflex",
+    titleUp: "Denflex",
+    titleDown: "Denflex",
     rightText: true,
   },
   {
@@ -44,9 +47,9 @@ const sliders = [
     image: "/bg-img/monigote.jpg",
     imageTablet: "/bg-img/monigote-tablet.png",
     imageMobile: "/bg-img/monigote_mobile.jpg",
-    subtitle: "Spring promo",
-    titleUp: "The Weekend",
-    titleDown: "Promotions",
+    subtitle: "Denflex",
+    titleUp: "Denflex",
+    titleDown: "Denflex",
     rightText: false,
   },
 ];
@@ -56,9 +59,9 @@ const Slideshow = () => {
 
   return (
     <>
-      <div className="slide-container relative -top-20 z-20 w-full">
+      <div className="slide-container relative z-20 w-full">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={0}
           loop={true}
