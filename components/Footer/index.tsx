@@ -151,7 +151,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      TOS{" "}
+                      Spring Endo File{" "}
                     </a>
                   </li>
                   <li>
@@ -160,7 +160,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Privacy Policy{" "}
+                      Combined Torque Wrench{" "}
                     </a>
                   </li>
                   <li>
@@ -169,7 +169,43 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Refund Policy{" "}
+                      One Touch Implant{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      Helical Attachment{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      Smart Abutment{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      NGZ Handpiece{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      Advanced Fixture{" "}
                     </a>
                   </li>
                 </ul>
@@ -188,7 +224,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Open Support Ticket{" "}
+                      Events{" "}
                     </a>
                   </li>
                   <li>
@@ -197,16 +233,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Terms of Use{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      About{" "}
+                      Seminars{" "}
                     </a>
                   </li>
                 </ul>
@@ -225,7 +252,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Open Support Ticket{" "}
+                      PR Center{" "}
                     </a>
                   </li>
                   <li>
@@ -234,7 +261,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Terms of Use{" "}
+                      Manuals{" "}
                     </a>
                   </li>
                   <li>
@@ -243,7 +270,25 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      About{" "}
+                      Catalogs{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      Inquires{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      FAQ{" "}
                     </a>
                   </li>
                 </ul>
