@@ -4,7 +4,7 @@
 }
 
 .leftTextSection {
-  @apply absolute bottom-1 right-1/2 flex w-full translate-x-1/2 transform flex-col items-center bg-none p-4 text-[4rem] opacity-90 sm:left-12 sm:transform-none sm:items-start sm:bg-transparent sm:p-0 sm:text-[6rem] sm:opacity-100 md:left-20 md:text-[6rem] lg:left-40 lg:text-[10rem];
+  @apply absolute bottom-10 right-1/2 flex w-full translate-x-1/2 transform flex-col items-center bg-none p-4 text-[2rem] opacity-90 sm:left-12 sm:transform-none sm:items-start sm:bg-transparent sm:p-0 sm:text-[4rem] sm:opacity-100 md:left-20 md:text-[4rem] lg:left-40 lg:text-[8rem];
 }
 
 .arrows {
