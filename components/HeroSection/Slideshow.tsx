@@ -71,9 +71,9 @@ const Slideshow = () => {
 
   return (
     <>
-      <div className="slide-container relative z-20 mt-[92px] w-full sm:mt-[95px] md:mt-[100px]">
+      <div className="slide-container relative z-20 w-full">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           slidesPerView={1}
           spaceBetween={0}
           loop={true}
