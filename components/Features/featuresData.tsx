@@ -1,8 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
 import { Feature } from "@/types/feature";
-
+import Image from "next/image";
 const featuresData: Feature[] = [
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/spring_endo.jpeg"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
         <path
@@ -18,6 +28,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/combined_torque_wrench.jpeg"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -33,6 +52,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/one_touch_implant_2.png"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -48,6 +76,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/helical_attach.png"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="42" viewBox="0 0 40 42" className="fill-current">
         <path
@@ -63,6 +100,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/smart_abutment.png"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -78,6 +124,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/ng_handpiece.png"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="45" viewBox="0 0 40 45" className="fill-current">
         <path
@@ -93,6 +148,15 @@ const featuresData: Feature[] = [
   },
   {
     id: 1,
+    image: (
+      <Image
+        className="mb-6 rounded-md fill-current shadow-md"
+        alt=""
+        src="/images/products/advanced_fixture.jpeg"
+        width="150"
+        height="150"
+      ></Image>
+    ),
     icon: (
       <svg width="40" height="45" viewBox="0 0 40 45" className="fill-current">
         <path
