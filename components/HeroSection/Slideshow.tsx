@@ -3,7 +3,7 @@
 import Image from "next/image";
 import TextButton from "../Buttons/TextButton";
 import styles from "./Hero.module.css";
-
+import AnimatedTitle from "../AnimtedTitle/AnimatedTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 
@@ -27,19 +27,15 @@ const sliders = [
     image: "/bg-img/denflex_img2.jpg",
     imageTablet: "/bg-img/denflex_img2.jpg",
     imageMobile: "/bg-img/denflex_img2.jpg",
-    subtitle: "Denflex",
     titleUp: "Denflex",
-    titleDown: "Denflex",
-    rightText: true,
+    rightText: false,
   },
   {
     id: 3,
     image: "/bg-img/denflex_img3.png",
     imageTablet: "/bg-img/denflex_img3.png",
     imageMobile: "/bg-img/denflex_img3.png",
-    subtitle: "Denflex",
     titleUp: "Denflex",
-    titleDown: "Denflex",
     rightText: false,
   },
   {
@@ -47,9 +43,7 @@ const sliders = [
     image: "/bg-img/denflex_img4.png",
     imageTablet: "/bg-img/denflex_img4.png",
     imageMobile: "/bg-img/denflex_img4.png",
-    subtitle: "Denflex",
     titleUp: "Denflex",
-    titleDown: "Denflex",
     rightText: false,
   },
   {
@@ -57,9 +51,7 @@ const sliders = [
     image: "/bg-img/denflex_img5.png",
     imageTablet: "/bg-img/denflex_img5.png",
     imageMobile: "/bg-img/denflex_img5.png",
-    subtitle: "Denflex",
     titleUp: "Denflex",
-    titleDown: "Denflex",
     rightText: false,
   },
 ];
@@ -73,6 +65,7 @@ const Slideshow = () => {
           layout="fill"
           objectFit="cover"
           alt={"some name"}
+          className="brightness-75"
         />
       </div>
     );
@@ -111,15 +104,7 @@ const Slideshow = () => {
                     : styles.leftTextSection
                 }
               >
-                <span className={styles.subtitle}>{slider.subtitle}</span>
-                <span
-                  className={`${styles.title} text-center ${
-                    slider.rightText ? "sm:text-right" : "sm:text-left"
-                  }`}
-                >
-                  {slider.titleUp} <br />
-                  {slider.titleDown}
-                </span>
+                <AnimatedTitle text={slider.titleUp} />
               </div>
             </SwiperSlide>
           ))}
