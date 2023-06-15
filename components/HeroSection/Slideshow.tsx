@@ -17,9 +17,7 @@ const sliders = [
     image: "/bg-img/bg_test.jpg",
     imageTablet: "/bg-img/bg_test.jpg",
     imageMobile: "/bg-img/bg_test.jpg",
-    subtitle: "Denflex",
-    titleUp: "Denflex",
-    titleDown: "Denflex",
+    titleUp: "Spring Endo File",
     rightText: false,
   },
   {
@@ -27,7 +25,7 @@ const sliders = [
     image: "/bg-img/denflex_img2.jpg",
     imageTablet: "/bg-img/denflex_img2.jpg",
     imageMobile: "/bg-img/denflex_img2.jpg",
-    titleUp: "Denflex",
+    titleUp: "Combined Torque Wrench",
     rightText: false,
   },
   {
@@ -35,7 +33,7 @@ const sliders = [
     image: "/bg-img/denflex_img3.png",
     imageTablet: "/bg-img/denflex_img3.png",
     imageMobile: "/bg-img/denflex_img3.png",
-    titleUp: "Denflex",
+    titleUp: "Free Angle Attachment",
     rightText: false,
   },
   {
@@ -43,7 +41,7 @@ const sliders = [
     image: "/bg-img/denflex_img4.png",
     imageTablet: "/bg-img/denflex_img4.png",
     imageMobile: "/bg-img/denflex_img4.png",
-    titleUp: "Denflex",
+    titleUp: "Advanced Fixture",
     rightText: false,
   },
   {
@@ -51,7 +49,7 @@ const sliders = [
     image: "/bg-img/denflex_img5.png",
     imageTablet: "/bg-img/denflex_img5.png",
     imageMobile: "/bg-img/denflex_img5.png",
-    titleUp: "Denflex",
+    titleUp: "One Touch Implant",
     rightText: false,
   },
 ];
@@ -59,7 +57,7 @@ const sliders = [
 const Slideshow = () => {
   const ImageComponent = (hideOn, imageUrl) => {
     return (
-      <div className={`${hideOn} relative`} style={{ height: "90vh" }}>
+      <div className={`${hideOn} relative`} style={{ height: "100vh" }}>
         <Image
           src={imageUrl}
           layout="fill"
@@ -73,7 +71,7 @@ const Slideshow = () => {
 
   return (
     <>
-      <div className="slide-container relative z-20 mt-[92px] w-full sm:mt-[95px] md:mt-[100px]">
+      <div className="slide-container relative z-20 w-full">
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
