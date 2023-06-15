@@ -15,7 +15,7 @@ const sliders = [
   {
     id: 2,
     image: "/bg-img/bg_test.jpg",
-    imageTablet: "/bg-img/bg_test.png",
+    imageTablet: "/bg-img/bg_test.jpg",
     imageMobile: "/bg-img/bg_test.jpg",
     subtitle: "Denflex",
     titleUp: "Denflex",
